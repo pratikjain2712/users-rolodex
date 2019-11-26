@@ -1,0 +1,24 @@
+.Card{
+display: flex;
+flex-direction: column;
+border: 1px solid #eee;
+background-color: #95dada;
+border-radius: 5px;
+padding: 25px;
+cursor: pointer;
+transform: scale(.95);
+transition: .3s transform ease-in-out;
+justify-content: center;
+align-items: center;
+}
+
+.Card:hover{
+transform: scale(1);
+
+}
+.Card img{
+  min-width: 180px;
+  min-height: 180px;
+  object-fit: contain;
+  object-position: center;
+}
