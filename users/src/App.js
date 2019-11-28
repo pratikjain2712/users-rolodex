@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import { Search } from './components/search/Search.component';
+
 import { CardList } from './components/card-list/CardList.component';
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      users: []
+      users: [],
+      searchText: ''
     };
   }
 
@@ -17,9 +20,13 @@ class App extends Component {
       .then(data => this.setState({ users: data }));
   }
   render() {
+    const { users, searchText } = this.state;
+    const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchText.toLowerCase()));
+    console.log(this.state, filteredUsers);
     return (
       <div className="App">
-        <CardList users={this.state.users}></CardList>
+        <Search placeholder={'Search User'} handleChange={e => this.setState({ searchText: e.target.value })}></Search>
+        <CardList users={filteredUsers}></CardList>
       </div>
     );
   }
