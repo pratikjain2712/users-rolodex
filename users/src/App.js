@@ -29,6 +29,7 @@ class App extends Component {
     console.log(this.state, filteredUsers);
     return (
       <div className="App">
+        <h1>Search Users By Name</h1>
         <Search placeholder={'Search User'} handleChange={this.handleChange}></Search>
         <CardList users={filteredUsers}></CardList>
       </div>
