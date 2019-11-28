@@ -19,13 +19,17 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.setState({ users: data }));
   }
+  handleChange = e => {
+    this.setState({ searchText: e.target.value });
+  };
+
   render() {
     const { users, searchText } = this.state;
     const filteredUsers = users.filter(user => user.name.toLowerCase().includes(searchText.toLowerCase()));
     console.log(this.state, filteredUsers);
     return (
       <div className="App">
-        <Search placeholder={'Search User'} handleChange={e => this.setState({ searchText: e.target.value })}></Search>
+        <Search placeholder={'Search User'} handleChange={this.handleChange}></Search>
         <CardList users={filteredUsers}></CardList>
       </div>
     );
