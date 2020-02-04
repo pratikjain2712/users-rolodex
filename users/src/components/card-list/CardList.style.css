@@ -1,8 +1,8 @@
 .CardList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 85vw;
   grid-gap: 20px;
+   width: 85vw;
   margin: 0 auto;
 }
 
